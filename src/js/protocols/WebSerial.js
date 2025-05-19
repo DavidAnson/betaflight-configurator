@@ -38,7 +38,7 @@ class WebSerial extends EventTarget {
     constructor() {
         super();
 
-        checkBrowserCompatibility();
+        // checkBrowserCompatibility();
 
         this.connected = false;
         this.openRequested = false;

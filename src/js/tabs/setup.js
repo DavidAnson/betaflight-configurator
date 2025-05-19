@@ -502,7 +502,7 @@ setup.initialize = function (callback) {
         prepareDisarmFlags();
         showSensorInfo();
         showFirmwareInfo();
-        showNetworkStatus();
+        // showNetworkStatus();
 
         // Show Sonar info box if sensor exist
         if (!have_sensor(FC.CONFIG.activeSensors, "sonar")) {

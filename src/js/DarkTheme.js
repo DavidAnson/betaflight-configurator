@@ -30,9 +30,9 @@ DarkTheme.apply = function () {
             self.applyNormal();
         }
 
-        if (chrome.app.window !== undefined) {
-            windowWatcherUtil.passValue(chrome.app.window.get("receiver_msp"), "darkTheme", isEnabled);
-        }
+        // if (chrome.app.window !== undefined) {
+        //     windowWatcherUtil.passValue(chrome.app.window.get("receiver_msp"), "darkTheme", isEnabled);
+        // }
     });
 };
 
