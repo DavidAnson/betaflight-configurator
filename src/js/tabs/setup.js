@@ -523,7 +523,7 @@ setup.initialize = function (callback) {
             hideSensorInfo();
         }
         showFirmwareInfo();
-        showNetworkStatus();
+        // showNetworkStatus();
 
         // Show Sonar info box if sensor exist
         if (!have_sensor(FC.CONFIG.activeSensors, "sonar")) {
