@@ -173,9 +173,10 @@ cli.initialize = function (callback) {
             self.GUI.snippetPreviewWindow.open();
         }
 
-        const file = await FileSystem.pickOpenFile(i18n.getMessage("fileSystemPickerFiles", { typeof: "TXT" }), ".txt");
-        const contents = await FileSystem.readFile(file);
-        previewCommands(contents, file.name);
+        // const file = await FileSystem.pickOpenFile(i18n.getMessage("fileSystemPickerFiles", { typeof: "TXT" }), ".txt");
+        // const contents = await FileSystem.readFile(file);
+        // previewCommands(contents, file.name);
+        previewCommands("# Get version\n\nversion", "SAFARI HACK");
     }
 
     async function saveFile(filename, content) {

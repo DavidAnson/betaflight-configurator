@@ -34,7 +34,7 @@ const PortHandler = new (function () {
     this.dfuAvailable = false;
     this.portAvailable = false;
 
-    checkBrowserCompatibility();
+    // checkBrowserCompatibility();
 
     this.showBluetoothOption = checkWebBluetoothSupport();
     this.showSerialOption = checkWebSerialSupport();
