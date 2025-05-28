@@ -16,6 +16,7 @@ import debounce from "lodash.debounce";
 import $ from "jquery";
 import FileSystem from "../FileSystem";
 import { have_sensor } from "../sensor_helpers";
+import { initializeModalDialog } from "../utils/initializeModalDialog";
 
 const FONT = {};
 const SYM = {};
@@ -2760,50 +2761,9 @@ osd.initialize = function (callback) {
             $(".display-layout .preview").css("zoom", previewZoom);
         }
 
-        // START: Reusable modal dialog functions
-
-        // Get the title bar for a modal dialog
-        const getDialogTitleBar = (messageId, onClose) => {
-            // HTML structure (should use flexbox)
-            const dialogTitleBar = $(`
-                <div class="jBox-title" style="height: 47px; padding: 15px 20px;">
-                    <div style="float: left">${i18n.getMessage(messageId)}</div>
-                    <div id="dialogclose" style="float: right; cursor: pointer; padding: 5px; margin: -5px;">
-                        <svg width="10" height="10" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                            <line x1="0" y1="0" x2="10" y2="10" stroke="var(--surface-950)" stroke-width="2"/>
-                            <line x1="0" y1="10" x2="10" y2="0" stroke="var(--surface-950)" stroke-width="2"/>
-                        </svg>
-                    </div>
-                </div>
-            `);
-            // Handle close button
-            dialogTitleBar.find("#dialogclose").on("click", onClose);
-            // Return title bar
-            return dialogTitleBar;
-        };
-
-        // Associate a button with a modal dialog
-        const enableModalDialog = (buttonSelector, dialogSelector, messageId) => {
-            // Get dialog elements
-            const dialog = $(dialogSelector);
-            const dialogElement = dialog.get(0);
-            const dialogContainerElement = dialog.children().first().get(0);
-            // Add dialog title bar
-            dialog.prepend(getDialogTitleBar(messageId, () => dialogElement.close()));
-            // Handle button click
-            $(buttonSelector).on("click", () => {
-                dialogElement.showModal();
-                // Reset any previous scrolling
-                dialogContainerElement.scroll(0, 0);
-            });
-            // Return dialog
-            return dialogElement;
-        };
-
-        // END: Reusable modal dialog functions
-
         // Enable font manager dialog
-        OSD.GUI.fontManager = enableModalDialog("#fontmanager", "#fontmanagerdialog", "osdSetupFontManagerTitle");
+        // TODO: Fix progressLabel position and layout
+        OSD.GUI.fontManager = initializeModalDialog("#fontmanager", "#fontmanagerdialog", "osdSetupFontManagerTitle");
 
         $(".elements-container div.cf_tip").attr("title", i18n.getMessage("osdSectionHelpElements"));
         $(".videomode-container div.cf_tip").attr("title", i18n.getMessage("osdSectionHelpVideoMode"));
