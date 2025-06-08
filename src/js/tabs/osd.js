@@ -2762,7 +2762,6 @@ osd.initialize = function (callback) {
         }
 
         // Enable font manager dialog
-        // TODO: Fix progressLabel position and layout
         OSD.GUI.fontManager = initializeModalDialog("#fontmanager", "#fontmanagerdialog", "osdSetupFontManagerTitle");
 
         $(".elements-container div.cf_tip").attr("title", i18n.getMessage("osdSectionHelpElements"));

@@ -9,11 +9,13 @@ import { i18n } from "../localization";
  * @returns {JQuery<HTMLElement>} Dialog title bar.
  */
 function getDialogTitleBar(messageId, messageParameters, onClose) {
-    // HTML structure (TODO: Convert to flexbox)
+    // HTML structure
     const dialogTitleBar = $(`
-        <div class="jBox-title" style="height: 47px; padding: 15px 20px;">
-            <div style="float: left">${i18n.getMessage(messageId, messageParameters || undefined)}</div>
-            <div id="dialogclose" style="float: right; cursor: pointer; padding: 5px; margin: -5px;">
+        <div class="jBox-title" style="display: flex; height: 47px">
+            <div style="flex: 1; display: flex; align-items: center;">
+                <div style="padding: 15px;">${i18n.getMessage(messageId, messageParameters || undefined)}</div>
+            </div>
+            <div id="dialogclose" style="flex: 0 0 47px; ; display: flex; align-items: center; justify-content: center; cursor: pointer;">
                 <svg width="10" height="10" version="1.1" xmlns="http://www.w3.org/2000/svg">
                     <line x1="0" y1="0" x2="10" y2="10" stroke="var(--surface-950)" stroke-width="2"/>
                     <line x1="0" y1="10" x2="10" y2="0" stroke="var(--surface-950)" stroke-width="2"/>
