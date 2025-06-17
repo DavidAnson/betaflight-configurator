@@ -168,13 +168,14 @@
                     </div>
                     <!-- Boot logo setup -->
                     <h1 class="tab_title" i18n="osdSetupCustomLogoTitle"></h1>
-                    <div class="grid-row">
-                        <div id="font-logo-preview-container" class="content_wrapper grid-col col6">
+                    <div style="display: flex; margin-bottom: 2em;">
+                        <div id="font-logo-preview-container">
                             <div id="font-logo-preview">
                                 <!-- this will be resized at runtime -->
                             </div>
                         </div>
-                        <div id="font-logo-info grid-col col6">
+                        <div style="flex: 1"></div>
+                        <div id="font-logo-info">
                             <h3 i18n="osdSetupCustomLogoInfoTitle"></h3>
                             <ul>
                                 <li id="font-logo-info-size" i18n="osdSetupCustomLogoInfoImageSize"></li>
@@ -184,7 +185,7 @@
                         </div>
                     </div>
                     <!-- Replace logo button -->
-                    <div class="default_btn" style="width:100%; float:left;">
+                    <div class="default_btn">
                         <a class="replace_logo" i18n="osdSetupCustomLogoOpenImageButton"></a>
                     </div>
                     <!-- Upload progress bar -->
@@ -195,8 +196,7 @@
                     </div>
                 </div>
                 <!-- Upload button -->
-                <div class="default_btn green" style="width:100%; float:left;
-                    ">
+                <div class="default_btn green">
                     <a class="flash_font active" i18n="osdSetupUploadFont"></a>
                 </div>
             </div>
