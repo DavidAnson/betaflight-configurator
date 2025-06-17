@@ -5,7 +5,7 @@ import { i18n } from "../localization";
  * Gets the title bar for a modal dialog.
  * @param {string} messageId Localized message identifier.
  * @param {object} [messageParameters] Localized message parameters
- * @param {() => void} onClose Function invoked by close button.
+ * @param {() => void} onClose Function invoked by the close button.
  * @returns {JQuery<HTMLElement>} Dialog title bar.
  */
 function getDialogTitleBar(messageId, messageParameters, onClose) {
@@ -31,15 +31,15 @@ function getDialogTitleBar(messageId, messageParameters, onClose) {
 
 /**
  * Initializes a modal dialog from an HTML dialog element.
- * @param {JQuery.Selector|null} buttonSelector JQuery selector for the activation element.
+ * @param {JQuery.Selector|null} activationSelector JQuery selector for the activation element.
  * @param {JQuery.Selector} dialogSelector JQuery selector for the dialog element.
  * @param {string} messageId Localized message identifier.
  * @param {object} [messageParameters] Localized message parameters
- * @param {() => void} [onClose] Function invoked by close button.
+ * @param {() => void} [onClose] Function invoked when the dialog is closed.
  * @returns {HTMLDialogElement} HTML dialog element.
  */
-export function initializeModalDialog(buttonSelector, dialogSelector, messageId, messageParameters, onClose) {
-    // Get dialog elements
+export function initializeModalDialog(activationSelector, dialogSelector, messageId, messageParameters, onClose) {
+    // Get dialog references
     const dialog = $(dialogSelector);
     const dialogElement = dialog.get(0);
     const dialogContainerElement = dialog.children().first().get(0);
@@ -47,15 +47,18 @@ export function initializeModalDialog(buttonSelector, dialogSelector, messageId,
     dialog.prepend(
         getDialogTitleBar(messageId, messageParameters, () => {
             dialogElement.close();
-            onClose && onClose();
         }),
     );
-    // Handle button click
-    $(buttonSelector).on("click", () => {
+    // Handle close event
+    dialogElement.addEventListener("close", () => {
+        onClose && onClose();
+    });
+    // Handle activation button click
+    $(activationSelector).on("click", () => {
         dialogElement.showModal();
         // Reset any previous scrolling
         dialogContainerElement.scroll(0, 0);
     });
-    // Return dialog
+    // Return dialog element
     return dialogElement;
 }
