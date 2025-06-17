@@ -1,6 +1,5 @@
 import "./jqueryPlugins";
 import $ from "jquery";
-import "jbox";
 import "../components/init.js";
 import { gui_log } from "./gui_log.js";
 // same, msp seems to be everywhere used from global scope
@@ -111,10 +110,10 @@ function startProcess() {
     console.log(`Libraries: jQuery - ${$.fn.jquery}, three.js - ${THREE.REVISION}`);
 
     // Check if this is the first visit
-    if (getConfig('firstRun').firstRun === undefined) {
+    if (getConfig("firstRun").firstRun === undefined) {
         setConfig({ firstRun: true });
-        import('./tabs/static_tab.js').then(({ staticTab }) => {
-            staticTab.initialize('options', () => {
+        import("./tabs/static_tab.js").then(({ staticTab }) => {
+            staticTab.initialize("options", () => {
                 setTimeout(() => {
                     // Open the options tab after a delay
                     $("#tabs .tab_options a").click();

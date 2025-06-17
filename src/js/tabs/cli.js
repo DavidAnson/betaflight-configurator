@@ -8,7 +8,6 @@ import { reinitializeConnection } from "../serial_backend";
 import CONFIGURATOR from "../data_storage";
 import CliAutoComplete from "../CliAutoComplete";
 import { gui_log } from "../gui_log";
-import jBox from "jbox";
 import $ from "jquery";
 import { serial } from "../serial";
 import FileSystem from "../FileSystem";

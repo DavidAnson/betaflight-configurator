@@ -5,7 +5,6 @@ import { mspHelper } from "../msp/MSPHelper";
 import FC from "../fc";
 import MSP from "../msp";
 import MSPCodes from "../msp/MSPCodes";
-import jBox from "jbox";
 import $ from "jquery";
 import { initializeModalDialog } from "../utils/initializeModalDialog";
 
