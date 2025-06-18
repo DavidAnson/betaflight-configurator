@@ -151,8 +151,8 @@
             </div>
 
             <!-- Font Manager dialog -->
-            <dialog closedby="any" id="fontmanagerdialog" style="width: 750px; border-color: var(--primary-500); padding: 0px;">
-            <div style="height: 430px; padding: 10px 15px; overflow-y: scroll;">
+            <dialog closedby="any" id="fontmanagerdialog" class="html-dialog" style="width: 750px;">
+            <div  class="html-dialog-content" class="html-dialog-content" style="height: 430px; overflow-y: scroll;">
                 <div class="font-picker" style="margin-bottom: 10px;">
                     <h1 class="tab_title" i18n="osdSetupFontPresets"></h1>
                     <!-- Font preview and list -->
@@ -192,7 +192,7 @@
                     <div class="info">
                         <a name="progressbar"></a>
                         <progress class="progress" value="0" min="0" max="100"></progress>
-                        <div class="progressLabel" style="margin-top: -21px; width: 95%; text-align: center; position: absolute;"></div>
+                        <div class="progressLabel"></div>
                     </div>
                 </div>
                 <!-- Upload button -->
