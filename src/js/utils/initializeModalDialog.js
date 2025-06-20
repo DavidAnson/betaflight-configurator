@@ -11,7 +11,7 @@ import { i18n } from "../localization";
 function getDialogTitleBar(messageId, messageParameters, onClose) {
     // HTML structure
     const dialogTitleBar = $(`
-        <div class="jBox-title" style="display: flex; height: 47px">
+        <div style="display: flex; height: 47px; background: var(--surface-300); border-bottom: 1px solid var(--surface-950);">
             <div style="flex: 1; display: flex; align-items: center;">
                 <div style="padding: 15px;">${i18n.getMessage(messageId, messageParameters || undefined)}</div>
             </div>
